@@ -23,16 +23,10 @@ jobs:
       #   run: cd example
       - name: Checkout
         uses: actions/checkout@v3
-      - name: list all files
-        run: ls
-      - name: Got to example folder
-        run: cd example
-      - name: list all files
-        run: ls -a
-      - name: Got to example folder
-        run: cd example
-      - name: list all files
-        run: ls -a
+      - name: Go to example folder
+        run: |
+          cd example
+          ls -a
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
@@ -40,7 +34,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
       - name: Terraform Format
         id: fmt
-        run: terraform fmt 
+        run: terraform fmt -check
       - name: terraform init 
         id: init
         run: terraform init -reconfigure -backend-config="bucket=$BUCKET" -backend-config="key=$TFSTATE_FILE" -backend-config="dynamodb_table=$DB_TABLE"
