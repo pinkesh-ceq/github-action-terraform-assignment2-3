@@ -42,6 +42,7 @@ variable "owner" {
 variable "env" {
   type        = string
   description = "(Required) Add lambda function Env variable environment/ test/dev"
+  default = "non-prod"
 }
 
 variable "retention_in_days" {
