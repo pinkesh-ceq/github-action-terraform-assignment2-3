@@ -30,6 +30,8 @@ jobs:
         run: ls -a
       - name: Got to example folder
         run: cd example
+      - name: list all files
+        run: ls -a
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
         with:
