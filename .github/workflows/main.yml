@@ -18,12 +18,13 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # - name: list all files
-      #   run: ls -a
+      
       # - name: Got to example folder
       #   run: cd example
       - name: Checkout
         uses: actions/checkout@v3
+      - name: list all files
+        run: ls
       - name: Got to example folder
         run: cd example
       - name: list all files
